@@ -160,4 +160,4 @@ cython_debug/
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 .idea/
 
-fatal: pathspec '.pytest_cache' did not match any files
+fatal: pathspec '.pytest_cache' did not match any files.idea/
