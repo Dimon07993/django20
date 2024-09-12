@@ -1,0 +1,57 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+
+<div class="col-12">
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Информация
+            </h3>
+          </div>
+          <div class="card-body">
+            <table class="table">
+              <tr>
+                <td>Наименование</td>
+                <td>{{ object.name }}</td>
+              </tr>
+              <tr>
+                <td>Цена</td>
+                <td>{{ object.price }}</td>
+              </tr>
+              <tr>
+                <td>Описание</td>
+                <td>{{ object.description | truncatechars:100 }}</td>
+              </tr>
+              <tr>
+                <td>Дата создания</td>
+                <td>{{ object.created_at }}</td>
+              </tr>
+              <tr>
+                <td>Дата последнего изменения</td>
+                <td>{{ object.updated_at }}</td>
+              </tr>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a class= "btn btn-primary" href="{% url 'catalog:product_list' %}" role="botton">Назад</a>
+          </div>
+        </div>
+        <div class="col-6">
+          <img src="media/{{ object.image }}"/>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+
+
+

@@ -1,15 +1,47 @@
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+
 from .models import Product
 
-def index_list(request):
-    products = Product.objects.all()
-    context = {'products': products}
-    return render(request, 'product_list.html', context)
+class ProductListView(ListView):
+    model = Product
 
-def product_detail(request, pk):
-    product = get_object_or_404(Product, pk=pk)
-    context = {'item': product}
-    return render(request, 'product_detail.html', context)
+
+
+class ProductDetailView(ListView):
+    model = Product
+    template_name = 'catalog/product_detail.html'
+    context_object_name = 'object'
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    fields = ('name', 'description','category','image', 'price')
+    success_url = reverse_lazy('catalog:product_list')
+
+
+class ProductDeLeteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('catalog:product_list')
+
+
+
+#def index_list(request):
+#    products = Product.objects.all()
+#    context = {'products': products}
+#    return render(request, 'catalog/product_list.html', context)
+
+#def product_detail(request, pk):
+#    product = get_object_or_404(Product, pk=pk)
+#    context = {'item': product}
+#    return render(request, 'catalog/product_detail.html', context)
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    fields = ('name', 'description','category','image', 'price')
+    success_url = reverse_lazy('catalog:product_list')
 
 
 

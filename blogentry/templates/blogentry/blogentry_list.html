@@ -1,0 +1,32 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+
+<div class="col-12 mb-5">
+    <a class="btn btn-outline-primary" href="{% url 'blogentry:create' %}">Добавить блог</a>
+</div>
+    {% for object in object_list %}
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+              <div class="card-body">
+                <p class="card-text">
+                  {{ object.title }}
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+
+                    <a href="{% url 'blogentry:view' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+
+                    <a href="{% url 'blogentry:edit' object.pk %}" class="btn btn-sm btn-outline-secondary">Изменить</a>
+                    <a href="{% url 'blogentry:delete' object.pk %}" class="btn btn-sm btn-outline-secondary">Удалить</a>
+                  </div>
+                  <small class="text-muted">{{ object.created_at }}</small>
+                </div>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+
+{% endblock %}
+
+
+
