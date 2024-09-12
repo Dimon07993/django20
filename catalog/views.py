@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from .models import Product
 
@@ -9,10 +9,9 @@ class ProductListView(ListView):
 
 
 
-class ProductDetailView(ListView):
+class ProductDetailView(DetailView):
     model = Product
-    template_name = 'catalog/product_detail.html'
-    context_object_name = 'object'
+
 
 
 class ProductUpdateView(UpdateView):
