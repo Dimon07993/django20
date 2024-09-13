@@ -8,6 +8,9 @@ urlpatterns = [
     path("", include("catalog.urls", namespace="catalog")),
     path("blogentry/", include("blogentry.urls", namespace="blogentry")),
 
-]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]  #+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

@@ -1,3 +1,5 @@
+from django.conf import settings
+from django.templatetags.static import static
 from django.urls import path
 from catalog.apps import CatalogConfig
 from catalog.views import ProductCreateView, ProductListView, ProductDetailView, ProductUpdateView, ProductDeLeteView
@@ -12,6 +14,8 @@ path('view/<int:pk>/', ProductDetailView.as_view(), name='view'),
 path('edit/<int:pk>/', ProductUpdateView.as_view(), name='edit'),
 path('delete/<int:pk>/', ProductDeLeteView.as_view(), name='delete'),
 ]
+
+
 
 
 
