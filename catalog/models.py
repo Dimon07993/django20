@@ -33,6 +33,9 @@ class Product(models.Model):
         auto_now=True, verbose_name="Дата последнего изменения"
     )
 
+    def get_active_version(self):
+        return self.versions.filter(is_current=True).first()
+
     def __str__(self):
         return self.name
 
