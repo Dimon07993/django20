@@ -156,9 +156,9 @@ LOGIN_URL = 'users:login'
 
 
 EMAIL_HOST = 'smtp.yandex.ru'
-EMAIL_PORT = 465#587#465
-EMAIL_HOST_USER = "fabrigas2010@yandex.ru"
-EMAIL_HOST_PASSWORD = "svlowwxtioqhomkj"
+EMAIL_PORT = 465
+EMAIL_HOST_USER = "@yandex.ru"
+EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = False
 EMAIL_USE_SSL = True
 
