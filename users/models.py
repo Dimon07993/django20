@@ -3,8 +3,6 @@ from django.utils.translation import gettext_lazy as _
 from django.db import models
 
 
-
-
 class User(AbstractUser):
     username = None
 
@@ -17,10 +15,8 @@ class User(AbstractUser):
 
     token = models.CharField(max_length=255, verbose_name=_('Токен'), blank=True, null=True)
 
-
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
     def __str__(self):
         return self.email
-

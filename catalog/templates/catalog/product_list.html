@@ -1,33 +1,57 @@
 {% extends 'catalog/base.html' %}
+{% load static %}
 {% load my_tags %}
 {% block content %}
 
-<div class="col-12 mb-5">
-    <a class="btn btn-outline-primary" href="{% url 'catalog:create' %}">Добавить продукт</a>
-</div>
-    {% for object in object_list %}
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
-                <img src="{{ object.image | media_filter }}">
-              <div class="card-body">
-                <p class="card-text">
-                  {{ object.name }}
-                </p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-
-                    <a href="{% url 'catalog:view' object.pk %}" class="btn btn-sm btn-outline-secondary">Посмотреть</a>
-
-                    <a href="{% url 'catalog:edit' object.pk %}" class="btn btn-sm btn-outline-secondary">Изменить</a>
-                    <a href="{% url 'catalog:delete' object.pk %}" class="btn btn-sm btn-outline-secondary">Удалить</a>
-                  </div>
-<!--                  <small class="text-muted">{{ object.created_at }}</small>-->
-                </div>
-              </div>
+<div class="container mt-5">
+    <div class="col-12 mb-5">
+        <div class="row-md-5">
+            <div class="col-12">
+                <a class="btn btn-outline-primary" href="{% url 'catalog:create' %}">Добавить продукт</a>
             </div>
         </div>
-    {% endfor %}
+    </div>
+
+    <div class="album py-5">
+        <div class="container">
+            <div class="row">
+                {% for object in object_list %}
+                <div class="col-md-4">
+                    <div class="card mb-4 box-shadow">
+                        {% if object.image %}
+                        <img class="card-img-top" src="{{ object.image.url }}" alt="{{ object.name }}"
+                             style="width: 100%; height: 200px; object-fit: cover;">
+                        {% else %}
+                        <img class="card-img-top" src="{% static 'images/default.png' %}" alt="Default Image"
+                             style="width: 100%; height: 200px; object-fit: cover;">
+                        {% endif %}
+
+                        <div class="card-body">
+                            <p class="card-text">
+                                Название: {{ object.name }} <br>
+                                {% if object.get_active_version %}
+                                    Активная версия: {{ object.get_active_version.version_name }} ({{ object.get_active_version.version_number }})
+                                {% else %}
+                                    Активная версия: не назначена
+                                {% endif %}
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'catalog:view' object.pk %}"
+                                       class="btn btn-sm btn-outline-secondary">Посмотреть</a>
+                                    <a href="{% url 'catalog:edit' object.pk %}"
+                                       class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                    <a href="{% url 'catalog:delete' object.pk %}"
+                                       class="btn btn-sm btn-outline-secondary">Удалить</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
-
-

@@ -1,11 +1,3 @@
-
-from .forms import EmailForm
-from django.contrib import messages
-from django.conf import settings
-
-
-
-
 import random
 import string
 import secrets
@@ -20,6 +12,7 @@ from django.core.mail import send_mail
 from users.forms import UserRegistrForm, UserProfileForm
 from users.models import User
 from config.settings import EMAIL_HOST_USER
+
 
 class RegisterView(CreateView):
     model = User
@@ -44,6 +37,7 @@ class RegisterView(CreateView):
             recipient_list=[user.email],
         )
         return super().form_valid(form)
+
 
 def email_verification(request, token):
     user = get_object_or_404(User, token=token)
@@ -84,11 +78,9 @@ class PasswordResetView(FormView):
             from_email=EMAIL_HOST_USER,
             recipient_list=[user.email],
         )
-        #subject = 'Восстановление пароля'
-        #message = f'Ваш новый пароль: {new_password}'
-        #from_email = EMAIL_HOST_USER
-        #send_mail(subject, message, from_email, [email])
+        # subject = 'Восстановление пароля'
+        # message = f'Ваш новый пароль: {new_password}'
+        # from_email = EMAIL_HOST_USER
+        # send_mail(subject, message, from_email, [email])
 
         return super().form_valid(form)
-
-
