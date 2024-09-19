@@ -7,7 +7,9 @@
     <div class="col-12 mb-5">
         <div class="row-md-5">
             <div class="col-12">
+                {% if perms.catalog.add_product %}
                 <a class="btn btn-outline-primary" href="{% url 'catalog:create' %}">Добавить продукт</a>
+                {% endif %}
             </div>
         </div>
     </div>
@@ -30,19 +32,28 @@
                             <p class="card-text">
                                 Название: {{ object.name }} <br>
                                 {% if object.get_active_version %}
-                                    Активная версия: {{ object.get_active_version.version_name }} ({{ object.get_active_version.version_number }})
+                                Активная версия: {{ object.get_active_version.version_name }} ({{
+                                object.get_active_version.version_number }})
                                 {% else %}
-                                    Активная версия: не назначена
+                                Активная версия: не назначена
                                 {% endif %}
                             </p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
+
                                     <a href="{% url 'catalog:view' object.pk %}"
                                        class="btn btn-sm btn-outline-secondary">Посмотреть</a>
-                                    <a href="{% url 'catalog:edit' object.pk %}"
-                                       class="btn btn-sm btn-outline-secondary">Изменить</a>
-                                    <a href="{% url 'catalog:delete' object.pk %}"
-                                       class="btn btn-sm btn-outline-secondary">Удалить</a>
+
+                                        {% if object.owner == user %}
+                                            <a href="{% url 'catalog:edit' object.pk %}"
+                                            class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                        {% endif %}
+                                        {% if object.owner == user %}
+                                            <a href="{% url 'catalog:delete' object.pk %}"
+                                            class="btn btn-sm btn-outline-secondary">Удалить</a>
+                                        {% endif %}
+
+
                                 </div>
                             </div>
                         </div>
