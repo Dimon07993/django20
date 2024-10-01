@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Category, Product
+from .models import Category, Product, Version
 
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
@@ -14,10 +14,8 @@ class ProductAdmin(admin.ModelAdmin):
 
 
 
-
-
-
-
-
+@admin.register(Version)
+class VersionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product', 'version_number', 'version_name', 'is_current')
 
 

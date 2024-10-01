@@ -1,1 +1,177 @@
-[{"model": "catalog.category", "pk": 1, "fields": {"name": "qwe", "description": "qwe"}}, {"model": "catalog.category", "pk": 2, "fields": {"name": "123", "description": "123"}}, {"model": "catalog.category", "pk": 3, "fields": {"name": "Sports", "description": ""}}, {"model": "catalog.product", "pk": 2, "fields": {"name": "ааааааааа", "description": "wee", "image": "catalog/photo/2f32cd9s-960.jpg", "category": 2, "price": "4.00", "created_at": "2024-09-09T19:20:09.216Z", "updated_at": "2024-09-12T20:42:51.326Z"}}, {"model": "catalog.product", "pk": 3, "fields": {"name": "rt", "description": "rt", "image": "catalog/photo/412ffba8-da9d-4ecd-8200-7039b0094c1e.webp", "category": 2, "price": "123.00", "created_at": "2024-09-09T19:20:34.305Z", "updated_at": "2024-09-13T08:04:36.063Z"}}, {"model": "catalog.product", "pk": 4, "fields": {"name": "wqe", "description": "fg", "image": "catalog/photo/Fotolia_49539651_Subscription_XXL.jpg", "category": 3, "price": "123.00", "created_at": "2024-09-09T19:39:33.911Z", "updated_at": "2024-09-10T16:18:03.150Z"}}, {"model": "catalog.product", "pk": 5, "fields": {"name": "фото", "description": "Описание фото ффваривадроненененененнененененененнененеенененненененененененнененененененнененененененненененененененнене", "image": "catalog/photo/Shopping-Cart1_banner.jpg", "category": 3, "price": "999.00", "created_at": "2024-09-09T20:34:31.926Z", "updated_at": "2024-09-13T07:48:06.330Z"}}, {"model": "catalog.product", "pk": 6, "fields": {"name": "123", "description": "Описание бла бла", "image": "catalog/photo/1672908486_pro-dachnikov-com-p-imitatsiya-skali-na-stene-foto-26_f7fE9u9.jpg", "category": 3, "price": "124.00", "created_at": "2024-09-10T16:16:57.066Z", "updated_at": "2024-09-12T20:43:05.795Z"}}, {"model": "catalog.product", "pk": 18, "fields": {"name": "test1", "description": "test", "image": "catalog/photo/412ffba8-da9d-4ecd-8200-7039b0094c1e_TSb26vj.webp", "category": 3, "price": "999990.00", "created_at": "2024-09-13T06:37:31.444Z", "updated_at": "2024-09-13T08:10:06.169Z"}}, {"model": "catalog.product", "pk": 20, "fields": {"name": "213", "description": "123", "image": "", "category": 3, "price": "123.00", "created_at": "2024-09-15T17:43:22.349Z", "updated_at": "2024-09-15T17:44:07.596Z"}}, {"model": "catalog.version", "pk": 2, "fields": {"product": 5, "version_number": "1", "version_name": "1", "is_current": true}}, {"model": "catalog.version", "pk": 3, "fields": {"product": 18, "version_number": "1.2", "version_name": "что то", "is_current": false}}, {"model": "catalog.version", "pk": 4, "fields": {"product": 3, "version_number": "1", "version_name": "1", "is_current": true}}, {"model": "catalog.version", "pk": 5, "fields": {"product": 18, "version_number": "1б2", "version_name": "123", "is_current": true}}, {"model": "catalog.version", "pk": 6, "fields": {"product": 20, "version_number": "1", "version_name": "1", "is_current": false}}, {"model": "catalog.version", "pk": 7, "fields": {"product": 20, "version_number": "2", "version_name": "qwerty", "is_current": true}}]
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "qwe",
+      "description": "qwe"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "123",
+      "description": "123"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "Sports",
+      "description": ""
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "ааааааааа",
+      "description": "wee",
+      "image": "catalog/photo/2f32cd9s-960.jpg",
+      "category": 2,
+      "price": "4.00",
+      "created_at": "2024-09-09T19:20:09.216Z",
+      "updated_at": "2024-09-12T20:42:51.326Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "rt",
+      "description": "rt",
+      "image": "catalog/photo/412ffba8-da9d-4ecd-8200-7039b0094c1e.webp",
+      "category": 2,
+      "price": "123.00",
+      "created_at": "2024-09-09T19:20:34.305Z",
+      "updated_at": "2024-09-13T08:04:36.063Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "wqe",
+      "description": "fg",
+      "image": "catalog/photo/Fotolia_49539651_Subscription_XXL.jpg",
+      "category": 3,
+      "price": "123.00",
+      "created_at": "2024-09-09T19:39:33.911Z",
+      "updated_at": "2024-09-10T16:18:03.150Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "фото",
+      "description": "Описание фото ффваривадроненененененнененененененнененеенененненененененененнененененененнененененененненененененененнене",
+      "image": "catalog/photo/Shopping-Cart1_banner.jpg",
+      "category": 3,
+      "price": "999.00",
+      "created_at": "2024-09-09T20:34:31.926Z",
+      "updated_at": "2024-09-13T07:48:06.330Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 6,
+    "fields": {
+      "name": "123",
+      "description": "Описание бла бла",
+      "image": "catalog/photo/1672908486_pro-dachnikov-com-p-imitatsiya-skali-na-stene-foto-26_f7fE9u9.jpg",
+      "category": 3,
+      "price": "124.00",
+      "created_at": "2024-09-10T16:16:57.066Z",
+      "updated_at": "2024-09-12T20:43:05.795Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 18,
+    "fields": {
+      "name": "test1",
+      "description": "test",
+      "image": "catalog/photo/412ffba8-da9d-4ecd-8200-7039b0094c1e_TSb26vj.webp",
+      "category": 3,
+      "price": "999990.00",
+      "created_at": "2024-09-13T06:37:31.444Z",
+      "updated_at": "2024-09-13T08:10:06.169Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 20,
+    "fields": {
+      "name": "213",
+      "description": "123",
+      "image": "",
+      "category": 3,
+      "price": "123.00",
+      "created_at": "2024-09-15T17:43:22.349Z",
+      "updated_at": "2024-09-15T17:44:07.596Z"
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 2,
+    "fields": {
+      "product": 5,
+      "version_number": "1",
+      "version_name": "1",
+      "is_current": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 3,
+    "fields": {
+      "product": 18,
+      "version_number": "1.2",
+      "version_name": "что то",
+      "is_current": false
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 4,
+    "fields": {
+      "product": 3,
+      "version_number": "1",
+      "version_name": "1",
+      "is_current": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 5,
+    "fields": {
+      "product": 18,
+      "version_number": "1б2",
+      "version_name": "123",
+      "is_current": true
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 6,
+    "fields": {
+      "product": 20,
+      "version_number": "1",
+      "version_name": "1",
+      "is_current": false
+    }
+  },
+  {
+    "model": "catalog.version",
+    "pk": 7,
+    "fields": {
+      "product": 20,
+      "version_number": "2",
+      "version_name": "qwerty",
+      "is_current": true
+    }
+  }
+]

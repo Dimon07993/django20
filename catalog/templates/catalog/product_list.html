@@ -44,15 +44,15 @@
                                     <a href="{% url 'catalog:view' object.pk %}"
                                        class="btn btn-sm btn-outline-secondary">Посмотреть</a>
 
-                                        {% if object.owner == user %}
-                                            <a href="{% url 'catalog:edit' object.pk %}"
-                                            class="btn btn-sm btn-outline-secondary">Изменить</a>
-                                        {% endif %}
-                                        {% if object.owner == user %}
-                                            <a href="{% url 'catalog:delete' object.pk %}"
-                                            class="btn btn-sm btn-outline-secondary">Удалить</a>
-                                        {% endif %}
+                                    {% if object.owner == user or perms.catalog.can_change_any_product %}
+                                    <a href="{% url 'catalog:edit' object.pk %}"
+                                       class="btn btn-sm btn-outline-secondary">Изменить</a>
+                                    {% endif %}
 
+                                    {% if object.owner == user or perms.catalog.can_delete_any_product %}
+                                    <a href="{% url 'catalog:delete' object.pk %}"
+                                       class="btn btn-sm btn-outline-secondary">Удалить</a>
+                                    {% endif %}
 
                                 </div>
                             </div>
