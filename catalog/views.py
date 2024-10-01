@@ -1,24 +1,38 @@
-
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 from django.forms import inlineformset_factory
 
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.core.exceptions import PermissionDenied
-from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import UpdateView
-from .models import Product
+from .models import Product, Category
 from .forms import OwnerProductForm, ModeratorProductForm
 from .forms import ProductForm, VersionForm
 from .models import Product, Version
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+from .services import get_cached_categories
 
 
 class ProductListView(ListView):
     model = Product
 
+    @method_decorator(cache_page(60 * 15))  # Кеш на 15 минут
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['categories'] = get_cached_categories()  # Передаем кешированные категории в контекст
+        return context
+
 
 class ProductDetailView(DetailView):
     model = Product
+
+    @method_decorator(cache_page(60 * 15))  # Кеш на 15 минут
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
@@ -108,10 +122,11 @@ class ProductDeLeteView(LoginRequiredMixin, DeleteView):
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
-        # fields = ('name', 'description','category','image', 'price')
+    # fields = ('name', 'description','category','image', 'price')
     success_url = reverse_lazy('catalog:product_list')
-
 
     def form_valid(self, form):
         form.instance.owner = self.request.user
         return super().form_valid(form)
+
+
